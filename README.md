@@ -10,6 +10,7 @@ This is a demo application for finding anagrams for given words. Includes REST e
 - Laravel framework 12 for the backend API (using PHP 8.2+)
 - PostgreSQL database
 - React 19 for the frontend app (using Bun as the JS runtime and package manager)
+- Docker (with compose) for easy development setup and deployment
 
 ## Getting started
 
