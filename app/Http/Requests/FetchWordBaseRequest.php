@@ -22,11 +22,8 @@ class FetchWordBaseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => [
-                'required',
-                'url',
-                'active_url',
-            ],
+            'name' => ['required', 'string', 'max:255'],
+            'url' => ['required', 'url', 'active_url'],
         ];
     }
 }

@@ -7,31 +7,32 @@ use Illuminate\Support\Facades\DB;
 
 class WordBaseService
 {
-    public function ingest(WordSourceInterface $source): int
+    public function ingest(WordSourceInterface $source, int $wordBaseId): int
     {
         $chunkSize = 1000;
         $pending = [];
         $insertCount = 0;
 
         foreach ($source->lines() as $line) {
-            $pending[] = ['word' => $line];
+            $pending[] = ['word' => strtolower($line)];
 
             if (count($pending) >= $chunkSize) {
-                $insertCount += $this->insertRows($pending);
+                $insertCount += $this->insertRows($pending, $wordBaseId);
                 $pending = [];
             }
         }
 
         // leftover items
         if (!empty($pending)) {
-            $insertCount += $this->insertRows($pending);
+            $insertCount += $this->insertRows($pending, $wordBaseId);
         }
 
         return $insertCount;
     }
 
-    private function insertRows(array $rows): int
+    private function insertRows(array $rows, int $wordBaseId): int
     {
+        $rows = array_map(fn ($row) => $row + ['word_base_id' => $wordBaseId], $rows);
         return DB::table('words')->insertOrIgnore($rows);
     }
 }

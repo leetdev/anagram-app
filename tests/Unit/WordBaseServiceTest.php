@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\WordBase;
 use App\Services\WordBaseService;
 use Illuminate\Support\Facades\DB;
 use App\Services\WordSources\WordSourceInterface;
@@ -17,7 +18,11 @@ test('WordBaseService ingests words into the database', function () {
 
     $service = new WordBaseService();
 
-    $inserted = $service->ingest($fakeSource);
+    $wordBase = WordBase::create([
+        'name' => 'Fruits',
+        'url' => 'https://example.com/wordlist.txt',
+    ]);
+    $inserted = $service->ingest($fakeSource, $wordBase->id);
 
     expect($inserted)->toBe(3)
         ->and(DB::table('words')->count())->toBe(3)
