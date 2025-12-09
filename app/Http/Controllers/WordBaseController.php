@@ -16,6 +16,7 @@ class WordBaseController extends Controller
 
     public function fetch(FetchWordBaseRequest $request): JsonResponse
     {
+
         try {
             $name = $request->validated('name');
             $url = $request->validated('url');
@@ -32,7 +33,7 @@ class WordBaseController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'inserted' => $inserted,
+                'message' => "Imported $inserted words.",
             ]);
         } catch (\Throwable $e) {
             return response()->json([

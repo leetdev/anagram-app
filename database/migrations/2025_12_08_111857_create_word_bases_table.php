@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('word_bases', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('url');
+            $table->string('url')->unique();
             $table->timestamps();
         });
     }

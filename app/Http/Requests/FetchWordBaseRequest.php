@@ -23,7 +23,7 @@ class FetchWordBaseRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'url' => ['required', 'url', 'active_url'],
+            'url' => ['required', 'url', 'active_url', 'unique:word_bases,url'],
         ];
     }
 }
