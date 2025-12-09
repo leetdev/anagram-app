@@ -12,6 +12,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "ext-mbstring": "*",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^12.1.1",
         "laravel/sanctum": "^4.0",
