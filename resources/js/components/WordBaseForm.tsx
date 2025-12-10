@@ -65,7 +65,6 @@ export default function WordBaseForm() {
                     id="name"
                     type="text"
                     className="border p-2 w-full"
-                    //value={values.name}
                     onChange={handleChange}
                 />
                 {errors.name && <div className="text-red-600">{errors.name}</div>}
@@ -77,7 +76,6 @@ export default function WordBaseForm() {
                     id="url"
                     type="text"
                     className="border p-2 w-full"
-                    //value={values.url}
                     onChange={handleChange}
                 />
                 {errors.url && <div className="text-red-600">{errors.url}</div>}

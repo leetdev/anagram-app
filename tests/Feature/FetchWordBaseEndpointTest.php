@@ -20,7 +20,7 @@ test('POST /word-base/fetch downloads and stores words', function () {
     $response->assertOk()
         ->assertJson([
             'status' => 'success',
-            'inserted' => 3,
+            'message' => 'Imported 3 words.',
         ]);
 
     expect(DB::table('words')->count())->toBe(3);

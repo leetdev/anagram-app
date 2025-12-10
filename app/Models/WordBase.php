@@ -16,4 +16,9 @@ class WordBase extends Model
     {
         return $this->hasMany(Word::class);
     }
+
+    public function sortedWords(string $search): HasMany
+    {
+        return $this->words()->where('sorted', $search);
+    }
 }

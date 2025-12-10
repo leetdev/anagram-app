@@ -15,10 +15,7 @@ class WordBaseService
 
         foreach ($source->lines() as $line) {
             $word = mb_strtolower($line);
-
-            $characters = mb_str_split($word);
-            sort($characters, SORT_STRING);
-            $sorted = join($characters);
+            $sorted = sort_string($word);
 
             $pending[] = [
                 'word' => $word,
