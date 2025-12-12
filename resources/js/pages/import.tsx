@@ -1,5 +1,5 @@
-import WordBaseForm from '@/components/WordBaseForm';
-import { Head } from '@inertiajs/react';
+import WordBaseForm from '@/components/WordBaseForm'
+import { Head } from '@inertiajs/react'
 
 export default function Import() {
     return (
@@ -22,5 +22,5 @@ export default function Import() {
                 </div>
             </div>
         </>
-    );
+    )
 }

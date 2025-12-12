@@ -1,3 +1,5 @@
+import { postApi } from '@/lib/utils'
+import { WordBase } from '@/types'
 import { useState } from 'react'
 import { fetch as fetchRoute } from '@/routes/word-base'
 
@@ -7,44 +9,35 @@ type Message = {
 } | null
 
 export default function WordBaseForm() {
-    const initial = {
+    const initial: WordBase = {
         name: '',
         url: ''
     }
-    const [values, setValues] = useState(initial)
-    const [errors, setErrors] = useState(initial)
+    const [values, setValues] = useState<WordBase>(initial)
+    const [errors, setErrors] = useState<WordBase>(initial)
     const [message, setMessage] = useState<Message>(null)
     const [loading, setLoading] = useState<boolean>(false)
 
-    function handleChange(e) {
+    const handleChange = e => {
         setValues(values => ({
             ...values,
             [e.target.id]: e.target.value
         }))
     }
 
-    function handleSubmit(e) {
+    const handleSubmit = e => {
         e.preventDefault()
 
         setLoading(true)
         setErrors(initial)
         setMessage(null)
 
-        fetch(fetchRoute().url, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(values)
-        })
-            .then(response => response.json())
+        postApi(fetchRoute().url, values)
             .then(result => {
                 if (result.errors) {
                     setMessage(null)
                     setErrors(result.errors)
                 } else {
-                    console.log(result)
                     setMessage({
                         type: result.status,
                         text: result.message,
