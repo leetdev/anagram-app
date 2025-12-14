@@ -40,27 +40,25 @@ export default function Home({ wordBases }: Props) {
                             <h1 className="mb-1 font-medium">Anagram Finder</h1>
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block font-bold">Word list</label>
                                     <select onChange={e => setWordBaseId(parseInt(e.target.value))}>
                                         {wordBases.map(base => <option
                                             value={base.id}>{base.name} ({base.url})</option>)}
                                     </select>
                                     <a className="ml-2 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
                                        href="/import">
-                                        Import
+                                        Import word list
                                     </a>
                                 </div>
                                 <div>
-                                    <label className="block font-bold">Search</label>
                                     <input
                                         type="text"
+                                        placeholder="Search"
                                         className="border p-2 w-full"
                                         onChange={submit}
                                     />
                                 </div>
                                 {anagrams.length > 0 ? <div>
-                                    <label className="block font-bold">Anagrams</label>
-                                    <ul className="uppercase">
+                                    <ul className="uppercase text-[20px]">
                                         {anagrams.map(anagram => <li>{anagram}</li>)}
                                     </ul>
                                 </div> : ''}
