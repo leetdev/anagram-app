@@ -49,14 +49,14 @@ export default function Home({ wordBases }: Props) {
                                         Import word list
                                     </a>
                                 </div>
-                                <div>
+                                {wordBases.length > 0 ? <div>
                                     <input
                                         type="text"
                                         placeholder="Search"
                                         className="border p-2 w-full"
                                         onChange={submit}
                                     />
-                                </div>
+                                </div> : ''}
                                 {anagrams.length > 0 ? <div>
                                     <ul className="uppercase text-[20px]">
                                         {anagrams.map(anagram => <li>{anagram}</li>)}
