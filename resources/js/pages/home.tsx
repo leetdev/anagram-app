@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function Home({ wordBases }: Props) {
-    const [wordBaseId, setWordBaseId] = useState<number>(wordBases[0].id ?? 0)
+    const [wordBaseId, setWordBaseId] = useState<number>(wordBases[0]?.id ?? 0)
     const [anagrams, setAnagrams] = useState<string[]>([])
 
     const submit = e => {
