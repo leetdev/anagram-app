@@ -2,12 +2,13 @@
 
 use App\Models\WordBase;
 use App\Services\WordBaseService;
-use Illuminate\Support\Facades\DB;
 use App\Services\WordSources\WordSourceInterface;
+use Illuminate\Support\Facades\DB;
 
 test('WordBaseService ingests words into the database', function () {
     // Fake word source
-    $fakeSource = new class implements WordSourceInterface {
+    $fakeSource = new class implements WordSourceInterface
+    {
         public function lines(): iterable
         {
             yield 'apple';
@@ -16,7 +17,7 @@ test('WordBaseService ingests words into the database', function () {
         }
     };
 
-    $service = new WordBaseService();
+    $service = new WordBaseService;
 
     $wordBase = WordBase::create([
         'name' => 'Fruits',

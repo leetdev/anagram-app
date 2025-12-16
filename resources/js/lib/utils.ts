@@ -5,18 +5,18 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export function postApi(url: string, data: any) {
+export function postApi(url: string, data: object) {
     return new Promise((resolve, reject) => {
         fetch(url, {
             method: 'POST',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         })
-            .then(response => response.json())
+            .then((response) => response.json())
             .then(resolve)
-            .catch(reject)
-    })
+            .catch(reject);
+    });
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WordBase;
 use App\Http\Requests\FindAnagramsRequest;
+use App\Models\WordBase;
 
 class AnagramController extends Controller
 {

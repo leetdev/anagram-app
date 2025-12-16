@@ -29,7 +29,7 @@ class WordBaseService
         }
 
         // leftover items
-        if (!empty($pending)) {
+        if (! empty($pending)) {
             $insertCount += $this->insertRows($pending, $wordBaseId);
         }
 
@@ -38,7 +38,8 @@ class WordBaseService
 
     private function insertRows(array $rows, int $wordBaseId): int
     {
-        $rows = array_map(fn($row) => $row + ['word_base_id' => $wordBaseId], $rows);
+        $rows = array_map(fn ($row) => $row + ['word_base_id' => $wordBaseId], $rows);
+
         return DB::table('words')->insertOrIgnore($rows);
     }
 }

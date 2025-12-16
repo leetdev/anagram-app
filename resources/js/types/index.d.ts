@@ -23,7 +23,7 @@ export interface User {
 }
 
 export interface WordBase {
-    id?: number
-    name: string
-    url: string
+    id?: number;
+    name: string;
+    url: string;
 }

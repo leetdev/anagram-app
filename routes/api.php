@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnagramController;
 use App\Http\Controllers\WordBaseController;
+use Illuminate\Support\Facades\Route;
 
 Route::post('/word-base/fetch', [WordBaseController::class, 'fetch'])->name('word-base.fetch');
 

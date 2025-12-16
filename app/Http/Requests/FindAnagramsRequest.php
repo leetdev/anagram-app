@@ -23,7 +23,7 @@ class FindAnagramsRequest extends FormRequest
     {
         return [
             'word' => 'string|required|max:255',
-            'wordBaseId' => 'required|integer|exists:word_bases,id'
+            'wordBaseId' => 'required|integer|exists:word_bases,id',
         ];
     }
 }

@@ -9,7 +9,8 @@ it('can find complete anagrams of a given word', function () {
         'name' => 'Fruit List',
         'url' => 'https://example.com/wordlist.txt',
     ]);
-    $fakeSource = new class implements WordSourceInterface {
+    $fakeSource = new class implements WordSourceInterface
+    {
         public function lines(): iterable
         {
             yield 'apple';
@@ -18,7 +19,7 @@ it('can find complete anagrams of a given word', function () {
             yield 'peach';
         }
     };
-    $service = new WordBaseService();
+    $service = new WordBaseService;
     $service->ingest($fakeSource, $wordBase->id);
 
     $response = $this->postJson('/api/find', [

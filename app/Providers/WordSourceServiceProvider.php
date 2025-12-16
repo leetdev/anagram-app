@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use App\Services\WordSources\WordSourceInterface;
 use App\Services\WordSources\HttpWordSource;
+use App\Services\WordSources\WordSourceInterface;
+use Illuminate\Support\ServiceProvider;
 
 class WordSourceServiceProvider extends ServiceProvider
 {

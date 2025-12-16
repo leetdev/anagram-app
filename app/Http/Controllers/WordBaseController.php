@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WordBase;
-use Illuminate\Http\JsonResponse;
 use App\Http\Requests\FetchWordBaseRequest;
+use App\Models\WordBase;
 use App\Services\WordBaseService;
 use App\Services\WordSources\WordSourceInterface;
+use Illuminate\Http\JsonResponse;
 
 class WordBaseController extends Controller
 {
-    public function __construct(private readonly WordBaseService $service)
-    {
-    }
+    public function __construct(private readonly WordBaseService $service) {}
 
     public function fetch(FetchWordBaseRequest $request): JsonResponse
     {
