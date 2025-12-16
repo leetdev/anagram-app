@@ -14,7 +14,6 @@ class WordBaseController extends Controller
 
     public function fetch(FetchWordBaseRequest $request): JsonResponse
     {
-
         try {
             $name = $request->validated('name');
             $url = $request->validated('url');
